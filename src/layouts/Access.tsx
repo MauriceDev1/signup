@@ -7,7 +7,7 @@ interface AccessProps {
 
 export default function Access({children}: AccessProps) {
   return (
-    <div className='w-full h-screen flex bg-sky-500'>
+    <div className='w-full h-screen flex bg-black'>
         <div className='bg-gray-100 flex w-9/12 rounded m-auto h-[90vh]'>
             <div className='w-1/2  bg-gradient-to-r from-blue-500 to-indigo-500 h-full realtive overflow-hidden hidden sm:block rounded-l' style={{position: 'relative',overflow:'hidden'}}>
                 <div className={styles.cartoonImg}></div>

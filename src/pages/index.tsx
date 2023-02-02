@@ -1,4 +1,29 @@
+import Hero from '@/components/Hero'
 import Head from 'next/head'
+import { IoPlayForward, IoAlarmSharp,IoRocketSharp,IoFitnessSharp } from "react-icons/io5";
+
+const IconList = [
+  {
+    id: 1,
+    icon: <IoRocketSharp className='text-7xl' />,
+    title: 'Fast'
+  },
+  {
+    id: 2,
+    icon: <IoAlarmSharp className='text-7xl' />,
+    title: 'Reliable'
+  },
+  {
+    id: 3,
+    icon: <IoFitnessSharp className='text-7xl' />,
+    title: 'Dedicated'
+  },
+  {
+    id: 4,
+    icon: <IoPlayForward className='text-7xl' />,
+    title: 'Committed'
+  },
+]
 
 export default function Home() {
   return (
@@ -10,7 +35,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        Welcome to Maurice App
+        <Hero />
+        <section className='w-full flex py-12'>
+          <div className='w-9/12 m-auto flex flex-wrap'>
+          {IconList.map(i => {
+            return (
+                <div key={i.id}  className='w-full sm:w-1/4'>
+                  <div className='w-full flex justify-center pb-3'>
+                    {i.icon}
+                  </div>
+                  <h3 className='text-center text-xl'>
+                    {i.title}
+                  </h3>
+                </div>
+            )
+          })}
+          </div>
+        </section>
       </main>
     </>
   )

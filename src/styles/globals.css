@@ -15,3 +15,8 @@
 0% { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
 }
+
+.heroImg{
+  background: url('./../assets/img/pexels-francesco-ungaro-96381.jpg') no-repeat;
+  background-size: cover;
+}
