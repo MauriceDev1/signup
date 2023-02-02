@@ -79,7 +79,7 @@ export default function Login() {
         <ToastContainer />
         <section>
           <h1 className="text-3xl text-center font-bold">Signup</h1>
-          <p className="text-sm px-4 pt-5 text-center">Welocme to Maurice App to become a member please could you kindly complete our signup form</p>
+          <p className="text-sm px-4 pt-5 text-center">Welocme to Maurice App to login please enter your name and email address as specified in form below.</p>
         </section>
         <section>
           {FieldTypes.map((f) => {
