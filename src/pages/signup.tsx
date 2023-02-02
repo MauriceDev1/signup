@@ -128,6 +128,7 @@ export default function Signup() {
         <ToastContainer />
         <section>
           <h1 className="text-3xl text-center font-bold">Signup</h1>
+          <p className="text-sm px-4 pt-5 text-center">Welocme to Maurice App to become a member please could you kindly complete our signup form</p>
         </section>
         <section>
           {FieldTypes.map((f) => {
@@ -154,7 +155,8 @@ export default function Signup() {
           })}
           <button
             onClick={handelSubmit}
-            className="bg-blue-500 hover:bg-blue-600 rounded mt-4 h-9 w-full text-white"
+            disabled={loading ? true : false }
+            className={loading ? "bg-blue-500 hover:bg-blue-600 rounded mt-4 h-9 w-full text-white cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 rounded mt-4 h-9 w-full text-white"}
           >
             {loading ? <div className="loader m-auto"></div> : <p>Submit</p>}
           </button>
