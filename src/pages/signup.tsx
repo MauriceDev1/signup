@@ -3,6 +3,9 @@ import { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
+
+// Put all the input fields in an array of ojects so that i could dynamically build the form with out repeating code
+// could have built it into its own component but just for show
 const FieldTypes = [
   {
     id: 1,
@@ -65,24 +68,25 @@ export default function Signup() {
     email: "",
     gender: "",
   });
+  // This is the loading state which we use to manipulate some functionality with in the form
   const [loading, setLoading] = useState(false);
-
+  //This is just the setup for the notification of the error message
   const notifyError = (e : string) => {
     toast.error(e, {
       position: toast.POSITION.TOP_CENTER
     });
   };
-
+  //This is just the setup for the notification of the success message
   const notifySuccess = (e : string) => {
     toast.success(e, {
       position: toast.POSITION.TOP_CENTER
     });
   };
-
+  // This section is use to change the formValues state on change event
   const handelChange = (e: any) => {
     setFormValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
+  //This handels the button submit as well as validates that form fields are not empty
   const handelSubmit = () => {
     const { first_name, last_name, email, contact_number, gender } = formValues;
     if (
