@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 const FieldTypes = [
   {
@@ -65,6 +67,18 @@ export default function Signup() {
   });
   const [loading, setLoading] = useState(false);
 
+  const notifyError = (e : string) => {
+    toast.error(e, {
+      position: toast.POSITION.TOP_CENTER
+    });
+  };
+
+  const notifySuccess = (e : string) => {
+    toast.success(e, {
+      position: toast.POSITION.TOP_CENTER
+    });
+  };
+
   const handelChange = (e: any) => {
     setFormValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -79,25 +93,25 @@ export default function Signup() {
       gender === ""
     ) {
       if (first_name === "") {
-        alert("name field is required");
+        notifyError("Name field is required!");
       }
       if (last_name === "") {
-        alert("surname field is required");
+        notifyError("Surname field is required!");
       }
       if (email === "") {
-        alert("surname field is required");
+        notifyError("Email field is required!");
       }
       if (contact_number === "") {
-        alert("contact number field is required");
+        notifyError("Contact number field is required!");
       }
       if (gender === "") {
-        alert("gender field is required");
+        notifyError("Gender field is required!");
       }
       return;
     }
     setLoading(true);
     setTimeout(() => {
-      alert("You have successfully signed up!");
+        notifySuccess("You have successfully signed up!");
       setLoading(false);
     }, 4000);
   };
@@ -111,6 +125,7 @@ export default function Signup() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="w-full p-10">
+        <ToastContainer />
         <section>
           <h1 className="text-3xl text-center font-bold">Signup</h1>
         </section>
